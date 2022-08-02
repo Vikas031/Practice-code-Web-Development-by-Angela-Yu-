@@ -1,0 +1,21 @@
+<%- include('partials/header'); -%>
+<br>
+<div class="container" style="width: 70%;">
+<% if(data!=""){ %>
+<h3><%= data.heading %></h3>
+<p><%= data.content %></p>
+<br>
+<% list.forEach((item)=>{ %>
+    <h4><%= item.postName %></h4>
+    <p>
+    <span class="content"><%= item.postContent %></span>
+    <span><a style="display: none;" class="content-link" href="/posts/<%= item.postName %>">Read More</a></span>
+</p>
+<% }) %>
+<% }else{ %>
+    <h3><%= topic %></h3>
+    <br>
+    <p><%= content %></p>
+<% }%>    
+</div>
+<%- include('partials/footer'); -%>  

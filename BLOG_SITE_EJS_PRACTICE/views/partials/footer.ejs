@@ -1,0 +1,25 @@
+
+<footer  class="bg-light text-center text-lg-start" style="position:absolute; bottom: 0;width:100%">
+    <div class="text-center p-3" style="background-color: rgb(45 151 11 / 78%) ;">
+      © 2020 Copyright , Made by Vikas 
+    </div>
+  </footer>
+  <script>
+    function truncate(str, n){
+    return (str.length > n) ?{check:true, string :str.substr(0, n-1) + ' ...'} :{check:false,string :str};
+    };
+
+    let p=document.getElementsByClassName('content');
+    let link=document.getElementsByClassName('content-link')
+    console.log(p[0].innerText);
+    for(let i=0;i<p.length;i++){
+      console.log("hello")
+      const text=truncate(p[i].innerText,300);
+      if(text.check){
+      p[i].innerHTML=text.string;
+      link[i].style.display="inline";
+      }
+    }
+  </script>
+</body>
+</html>
