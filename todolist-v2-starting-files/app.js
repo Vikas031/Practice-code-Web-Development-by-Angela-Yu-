@@ -9,7 +9,7 @@ var _ = require('lodash');
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://localhost:27017/todolistDB');
+  await mongoose.connect('mongodb+srv://vikas:test123@cluster0.yvxxnhv.mongodb.net/to_do_list?retryWrites=true&w=majority');
 }
 
 const itemSchema=new mongoose.Schema({
@@ -43,25 +43,16 @@ app.use(express.static("public"));
 app.get("/", async function(req, res) {
 const doc=await getdata();
 
-const day = date.getDate();
-
   res.render("list", {listTitle: "Today", newListItems: doc});
 
 });
 
 // Route to add post to home page
 app.post("/",async function(req, res){
-
   const item = req.body.newItem;
-  console.log(item);
-  if (req.body.list === "Work") {
-    workItems.push(item);
-    res.redirect("/work");
-  } else {
     const i=new Item({item:item});
     await i.save();
     res.redirect("/");
-  }
 });
 
 //routes for other list than home 
@@ -112,6 +103,6 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-app.listen(3000, function() {
+app.listen(process.env.PORT||3000, function() {
   console.log("Server started on port 3000");
 });
