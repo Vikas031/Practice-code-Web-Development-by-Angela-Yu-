@@ -14,7 +14,7 @@
     console.log(p[0].innerText);
     for(let i=0;i<p.length;i++){
       console.log("hello")
-      const text=truncate(p[i].innerText,300);
+      const text=truncate(p[i].innerText,100);
       if(text.check){
       p[i].innerHTML=text.string;
       link[i].style.display="inline";
