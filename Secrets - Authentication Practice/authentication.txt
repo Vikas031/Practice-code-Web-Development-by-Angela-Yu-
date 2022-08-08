@@ -1,0 +1,5 @@
+Level 1 : simply saving email and password to data base and checking it with after login
+
+Level 2 : Encryption of password using mongoose encryption and using env files
+
+Level 3 : Hashing then
